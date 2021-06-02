@@ -59,4 +59,22 @@ Insert into Album (Title, ReleaseDate, AlbumLength, Label, ArtistId, GenreId) Va
 -------------------------------------------------
 9. Using the INSERT statement, add some songs that are on that album to the Song table.
 
+Select * from Artist
+Select * from Genre
+Select * from Album
+Select * from song
+
+Insert into Song (Title, SongLength, ReleaseDate, GenreId, ArtistId, AlbumId) values ('Go your own way', 334, '12/21/1977', 2, 29, 23);
+
+-------------------------------------------------
+10. Write a SELECT query that provides the song titles, album title, and artist name for all of the data you just entered in. Use the LEFT JOIN keyword sequence to connect the tables, and the WHERE keyword to filter the results to the album and artist you added.
+
+SELECT b.Title, s.Title, a.ArtistName 
+FROM Album b 
+LEFT JOIN Song s ON s.AlbumId = b.Id
+LEFT JOIN Artist a ON a.id = b.ArtistId
+where ArtistName = 'fleetwood mac';
+
+-------------------------------------------------
+11. Write a SELECT statement to display how many songs exist for each album. You'll need to use the COUNT() function and the GROUP BY keyword sequence.
 */
