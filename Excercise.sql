@@ -43,5 +43,20 @@ left join Song s on s.AlbumId = b.id
 where s.AlbumId IS NULL
 
 -------------------------------------------------
+7. Using the INSERT statement, add one of your favorite artists to the Artist table.
+
+Insert into Artist (ArtistName, YearEstablished) Values ('Fleetwood Mac', 2021);
+
+-------------------------------------------------
+8. Using the INSERT statement, add one, or more, albums by your artist to the Album table.
+
+Select * from Artist
+Select * from Genre
+Select * from Album
+
+Insert into Album (Title, ReleaseDate, AlbumLength, Label, ArtistId, GenreId) Values ('Rumors', 1977, 18, 'Studio Album', 29, 2);
+
+-------------------------------------------------
+9. Using the INSERT statement, add some songs that are on that album to the Song table.
 
 */
