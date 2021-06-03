@@ -77,4 +77,29 @@ where ArtistName = 'fleetwood mac';
 
 -------------------------------------------------
 11. Write a SELECT statement to display how many songs exist for each album. You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+
+SELECT b.Title, b.Id, count(s.title) '# of songs'
+FROM Album b 
+left JOIN Song s ON s.AlbumId = b.Id
+Group by b.title, b.id 
+
+-------------------------------------------------
+12. Write a SELECT statement to display how many songs exist for each artist. You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+
+SELECT a.ArtistName, a.Id, count(s.title) '# of songs'
+FROM Artist a 
+left JOIN Song s ON s.ArtistId = a.Id
+Group by a.ArtistName, a.id 
+
+-------------------------------------------------
+13. Write a SELECT statement to display how many songs exist for each genre. You'll need to use the COUNT() function and the GROUP BY keyword sequence.
+
+SELECT g.Name, g.Id, count(s.title) '# of songs'
+FROM Genre g 
+left JOIN Song s ON s.GenreId = g.Id
+Group by g.Name, g.id 
+
+-------------------------------------------------
+14. Write a SELECT query that lists the Artists that have put out records on more than one record label. Hint: When using GROUP BY instead of using a WHERE clause, use the HAVING keyword
 */
+
