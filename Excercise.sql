@@ -101,5 +101,33 @@ Group by g.Name, g.id
 
 -------------------------------------------------
 14. Write a SELECT query that lists the Artists that have put out records on more than one record label. Hint: When using GROUP BY instead of using a WHERE clause, use the HAVING keyword
-*/
 
+SELECT count(b.Label) 'label count', a.id, a.ArtistName 
+FROM Artist a
+LEFT JOIN Album b ON b.ArtistId = a.Id
+Group by a.ArtistName, a.Id
+having count(label) > 1
+
+-------------------------------------------------
+15. Using MAX() function, write a select statement to find the album with the longest duration. The result should display the album title and the duration.
+
+Select b.Title, AlbumLength
+From Album b
+where AlbumLength = (select max(AlbumLength) from Album); 
+
+-------------------------------------------------
+16. Using MAX() function, write a select statement to find the song with the longest duration. The result should display the song title and the duration.
+
+Select s.Title, SongLength
+From Song s
+where SongLength = (select max(SongLength) from Song); 
+
+-------------------------------------------------
+17. Modify the previous query to also display the title of the album.
+
+Select s.Title, SongLength, b.Title
+From Song s
+left JOIN Album b ON b.id = s.AlbumId
+where SongLength = (select max(SongLength) from Song); 
+
+*/
